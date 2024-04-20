@@ -11,8 +11,9 @@ const Home = () => {
             <div>
                 <ul className="flex justify-center gap-4 mt-12 mb-16">
                     <li><NavLink className='btn'>Women</NavLink></li>
-                    <li><NavLink className='btn'>Man</NavLink></li>
-                    <li><NavLink className='btn'>Kids</NavLink></li>
+                    <li><NavLink className='btn'>MAN</NavLink></li>
+                    <li><NavLink className='btn'>KIDS</NavLink></li>
+                    
                 </ul>
             </div>
             <WomanMainSection></WomanMainSection>

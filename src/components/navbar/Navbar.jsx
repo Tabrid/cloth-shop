@@ -19,7 +19,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className={`navbar ${scrolled ?'bg-base-100': 'bg-transparent'}`}>
+            <div className={`navbar w-96 md:w-full ${scrolled ?'bg-base-100': 'bg-transparent'}`}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -37,8 +37,12 @@ const Navbar = () => {
                             <li><a>Item 3</a></li>
                         </ul>
                     </div>
+                    <div className={`flex  flex-col text-center md:hidden ${!scrolled && 'text-white'}`}>
+                        <a className={`font-bold text-[10px]`}>THE GIVING MOMENTS</a>
+                        <p className="text-[10px] font-extralight -pt-">MADE IN UAE</p>
+                    </div>
                     <div className="md:grid hidden">
-                        <ul className={`menu menu-horizontal px-6 ${!scrolled && 'text-white'}`}>
+                        <ul className={`menu flex menu-horizontal px-6 ${!scrolled && 'text-white'}`}>
                             <li><a className="text-[16px]" href="">Woman</a></li>
                             <li><a className="text-[16px]" href="">Man</a></li>
                             <li><a className="text-[16px]" href="">Kids</a></li>
@@ -49,15 +53,15 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <div className={`flex flex-col text-center ${!scrolled && 'text-white'}`}>
-                        <a className={`btn btn-ghost text-2xl`}>THE GIVING MOMENTS</a>
+                        <a className={`btn font-extrabold btn-ghost text-2xl`}>THE GIVING MOMENTS</a>
                         <p className="text-[14px] font-extralight">MADE IN UAE</p>
                     </div>
 
                 </div>
-                <div className={`navbar-end px-6 md:gap-6 text-3xl ${!scrolled && 'text-white '}`}>
+                <div className={`navbar-end px-6 md:gap-6 gap-1 md:text-3xl ${!scrolled && 'text-white '}`}>
                     <a ><CiHeart /></a>
                     <a ><CiUser /></a>
-                    <a ><CiSearch /></a>
+                    <a className="md:grid hidden"><CiSearch /></a>
                     <a ><HiOutlineShoppingBag /></a>
                 </div>
             </div>

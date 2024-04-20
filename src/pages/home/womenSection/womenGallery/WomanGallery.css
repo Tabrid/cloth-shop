@@ -1,0 +1,41 @@
+.new-season{
+    background-image: url('../../../../assets/images/NEW_SEASON_835d7d4f-ea2a-4fce-b868-51814a76811b_1512x.webp');
+    background-position: center;
+    background-size: cover;
+}
+.full-collection{
+    background-image: url('../../../../assets/images/FULL_COLLECTION_a41b457f-13ad-4ddd-9647-887ff359434f_1512x.webp');
+    background-position: center;
+    background-size: cover;
+}
+.satin-luxe{
+    background-image: url('../../../../assets/images/SATIN_c803e23a-b68c-4f68-a7ff-06b70328a160_1950x.webp');
+    background-position: center;
+    background-size: cover;
+}
+.active1{
+    background-image: url('../../../../assets/images/ACTIVE_a7b2d11d-5e27-4472-9c2a-6ed4a430a4fc_720x.webp');
+    background-position: center;
+    background-size: cover;
+}
+.lounge{
+    background-image: linear-gradient(0deg, rgba(106, 106, 106, 0.8) 0%, rgba(163, 163, 163, 0) 40%), url(../../../../assets/images/LOUNGE_170714df-9dbd-4a7e-8ee3-721f43d77642_720x.webp);
+
+    background-position: center;
+    background-size: cover;
+}
+.streetwear{
+    background-image: url('../../../../assets/images/STREET_aaee6636-e233-474e-a777-358560af69e4_720x.webp');
+    background-position: center;
+    background-size: cover;
+}
+.seamless{
+    background-image: url('../../../../assets/images/SEAMLESS_9ec18fe7-4fa7-47e4-9943-d0f9dc1cb373_720x.webp');
+    background-position: center;
+    background-size: cover;
+}
+.palestine{
+    background-image: url('../../../../assets/images/PALESTINE_0e8dbeed-4265-4e9f-a5ce-dd5353244421_1950x.webp');
+    background-position: center;
+    background-size: cover;
+}
