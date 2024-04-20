@@ -2,10 +2,24 @@ import { CiHeart } from "react-icons/ci";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { CiUser } from "react-icons/ci";
 import { CiSearch } from "react-icons/ci";
+import { useState } from "react";
 const Navbar = () => {
+
+    const [scrolled, setScrolled] = useState(false)
+
+    const handleScroll = ()=>{
+        if(window.scrollY > 20){
+            setScrolled(true)
+        }else{
+            setScrolled(false)
+        }
+    }
+
+    window.addEventListener('scroll',handleScroll)
+
     return (
         <div>
-            <div className="navbar bg-transparent">
+            <div className={`navbar ${scrolled ?'bg-base-100': 'bg-transparent'}`}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -24,7 +38,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="md:grid hidden">
-                        <ul className="menu menu-horizontal px-6 text-white">
+                        <ul className={`menu menu-horizontal px-6 ${!scrolled && 'text-white'}`}>
                             <li><a className="text-[16px]" href="">Woman</a></li>
                             <li><a className="text-[16px]" href="">Man</a></li>
                             <li><a className="text-[16px]" href="">Kids</a></li>
@@ -34,17 +48,17 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <div className="flex flex-col text-center">
-                        <a className="btn btn-ghost text-2xl text-white">THE GIVING MOMENTS</a>
-                        <p className="text-white text-[14px] font-extralight">MADE IN UAE</p>
+                    <div className={`flex flex-col text-center ${!scrolled && 'text-white'}`}>
+                        <a className={`btn btn-ghost text-2xl`}>THE GIVING MOMENTS</a>
+                        <p className="text-[14px] font-extralight">MADE IN UAE</p>
                     </div>
 
                 </div>
-                <div className="navbar-end px-6 md:gap-6">
-                    <a className="text-white text-3xl"><CiHeart /></a>
-                    <a className="text-white text-3xl"><CiUser /></a>
-                    <a className="text-white text-3xl"><CiSearch /></a>
-                    <a className="text-white text-3xl"><HiOutlineShoppingBag /></a>
+                <div className={`navbar-end px-6 md:gap-6 text-3xl ${!scrolled && 'text-white '}`}>
+                    <a ><CiHeart /></a>
+                    <a ><CiUser /></a>
+                    <a ><CiSearch /></a>
+                    <a ><HiOutlineShoppingBag /></a>
                 </div>
             </div>
         </div>
