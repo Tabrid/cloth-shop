@@ -53,8 +53,8 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <div className={`flex flex-col text-center ${!scrolled && 'text-white'}`}>
-                        <a className={`btn font-extrabold btn-ghost text-2xl`}>THE GIVING MOMENTS</a>
-                        <p className="text-[14px] font-extralight">MADE IN UAE</p>
+                        <a className={`btn font-extrabold btn-ghost text-2xl scale-y-125 tracking-[-0.09em]`}>THE GIVING MOMENTS</a>
+                        <p className="text-[14px] font-extralight scale-y-125">MADE IN UAE</p>
                     </div>
 
                 </div>
