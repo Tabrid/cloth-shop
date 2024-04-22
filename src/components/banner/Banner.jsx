@@ -1,10 +1,15 @@
-// import navVideo from '../../assets/Banner.webp'
+import navVideo from '../../assets/videos/The Giving Movement- Sustainable Activewear Clothing Dubai – The Giving Movement.mp4'
 
 const Banner = () => {
     return (
         <div>
-            <div className='bg-slate-500 h-[650px]'></div>
-            {/* <img className='w-full h-[650px]' src={navVideo}></img> */}
+            <div className='relative'>
+                <video autoPlay muted loop>
+                    <source src={navVideo} />
+                </video>
+                
+            </div>
+
         </div>
     );
 };

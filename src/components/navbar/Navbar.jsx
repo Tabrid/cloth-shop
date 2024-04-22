@@ -41,7 +41,7 @@ const Navbar = () => {
                         <a className={`font-bold text-[10px]`}>THE GIVING MOMENTS</a>
                         <p className="text-[10px] font-extralight -pt-">MADE IN UAE</p>
                     </div>
-                    <div className="md:grid hidden">
+                    <div className="lg:grid hidden">
                         <ul className={`menu flex menu-horizontal px-6 ${!scrolled && 'text-white'}`}>
                             <li><a className="text-[16px]" href="">Woman</a></li>
                             <li><a className="text-[16px]" href="">Man</a></li>
