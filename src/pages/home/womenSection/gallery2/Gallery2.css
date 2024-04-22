@@ -1,0 +1,22 @@
+
+.softskin{
+    background-image: url('../../../../assets/images/SOFTSKIN_2.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.cotton{
+    /* background-image: linear-gradient(0deg, rgba(106, 106, 106, 0.8) 0%, rgba(163, 163, 163, 0) 40%), url(../../../../assets/images/LOUNGE_170714df-9dbd-4a7e-8ee3-721f43d77642_720x.webp); */
+    background-image: url('../../../../assets/images/ORGANIC_COTTON.jpg');
+    background-position: center;
+    background-size: cover;
+}
+.shell{
+    background-image: url('../../../../assets/images/SHELL_1_7f582429-da88-4c5f-8a85-15c41f7ddffc.webp');
+    background-position: center;
+    background-size: cover;
+}
+.satin{
+    background-image: url('../../../../assets/images/SATIN.webp');
+    background-position: center;
+    background-size: cover;
+}
