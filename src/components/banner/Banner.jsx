@@ -4,8 +4,8 @@ import navVideo from '../../assets/videos/The Giving Movement- Sustainable Activ
 const Banner = () => {
     return (
         <div className='relative'>
-            <div className='video-container md: w-full h-[620px] overflow-hidden'>
-                <video autoPlay muted loop style={{ width: '100%', height: 'auto', objectFit: 'cover' }}>
+            <div className='video-container md: w-full h-[680px] overflow-hidden'>
+                <video autoPlay muted loop >
                     <source src={navVideo} />
                 </video>
             </div>

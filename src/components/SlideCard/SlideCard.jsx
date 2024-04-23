@@ -25,18 +25,18 @@ const SlideCard = () => {
     };
 
     return (
-        <div className={`w-1/3 transition-right duration-500 bg-base-100 h-screen  absolute z-[99999999999999999] p-6 ${close ? 'right-[-600px] ' : 'right-[-00px]'}`}>
+        <div className={`w-1/3 bg-base-100 h-screen z-[999] p-6 `}>
             <h1 className="font-bold text-3xl mb-6">Shopping bag(1)</h1>
             <div className="grid grid-cols-4 gap-6 relative">
                 <div>
                     <img src={img} alt="" />
                 </div>
                 <div className="col-span-2">
-                    <h1>Oversized Palestine Hoodie</h1>
+                    <h1 className="text-xl">Oversized Palestine Hoodie</h1>
                     <p>Colour: Pithch Black</p>
                     <p>Size (UK): M</p>
                     <p>8 in stock</p>
-                    <div className="flex border w-16">
+                    <div className="flex border w-16 my-5 py-1 px-1 rounded-md">
                         <button className="" onClick={decreaseNumber}><HiOutlineMinus /></button>
                         <input type="text" value={number} className=" text-center w-[100%]" />
                         <button className="" onClick={increaseNumber}><BsPlusLg /></button>
