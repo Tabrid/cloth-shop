@@ -27,6 +27,7 @@ import { MdClose } from "react-icons/md";
 // import required modules
 import { Navigation } from 'swiper/modules';
 import { useState } from "react";
+import SlideCard from "../../../../components/SlideCard/SlideCard";
 
 
 
@@ -35,6 +36,13 @@ const ExplorePalestine = () => {
     const [mouseOver, setMouseOver] = useState(false)
     const [number, setNumber] = useState(1);
     const [quickBuy, SetQuickBuy] = useState(false)
+    const [slideCard, setSlideCard] = useState(false)
+
+    const handleSlideCard = () => {
+        setSlideCard(!slideCard)
+        // document.body.style.overflow = 'hidden';
+        console.log(slideCard);
+    }
 
 
     const handleQuick = () => {
@@ -109,42 +117,9 @@ const ExplorePalestine = () => {
         ]
     };
 
-    var settings2 = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        initialSlide: 0,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
 
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    initialSlide: 1
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    };
     return (
-        <div className="relative">
+        <div className="relative overflow-hidden">
             <h1 className="font-bold  md:text-xl text-center">EXPLORE PALESTINE</h1>
             <div className=" overflow-hidden md:mt-8">
                 <Slider {...settings}>
@@ -170,7 +145,7 @@ const ExplorePalestine = () => {
                                             <img className="cursor-pointer" style={handleShowImg} src={img2} alt="" />
                                             <h1 className="absolute z-50 left-3 bottom-4 cursor-pointer text-[10px] bg-[#f4f4f4] text-[#626262] p-1 rounded-sm">new</h1>
                                             <p className="z-50 absolute top-2 right-3 text-3xl"><CiHeart /></p>
-                                            <button className={`bg-base-100 text-[12px] w-[90%] z-50 absolute bottom-4 rounded-sm font-extralight py-3 left-3 ${mouseOver ? '' : 'hidden'}`} onClick={handleQuick}>QUICK BUY</button>
+                                            <a href="#quickBuy" className={`bg-base-100 text-[12px] w-[90%] z-50 absolute bottom-4 rounded-sm font-extralight py-3 left-3 ${mouseOver ? '' : 'hidden'}`} onClick={handleQuick} >QUICK BUY</a>
                                         </div>
                                     </SwiperSlide>
                                     <SwiperSlide  >
@@ -179,7 +154,7 @@ const ExplorePalestine = () => {
                                             <img className="cursor-pointer" style={handleShowImg} src={img3} alt="" />
                                             <h1 className="absolute z-50 left-3 bottom-4 cursor-pointer text-[10px] bg-[#f4f4f4] text-[#626262] p-1 rounded-sm">new</h1>
                                             <p className="z-50 absolute top-2 right-3 text-3xl"><CiHeart /></p>
-                                            <button className={`bg-base-100 text-[12px] w-[90%] z-50 absolute bottom-4 rounded-sm font-extralight py-3 left-3 ${mouseOver ? '' : 'hidden'}`} onClick={handleQuick}>QUICK BUY</button>
+                                            <a href="#quickBuy" className={`bg-base-100 text-[12px] w-[90%] z-50 absolute bottom-4 rounded-sm font-extralight py-3 left-3 ${mouseOver ? '' : 'hidden'}`} onClick={handleQuick} >QUICK BUY</a>
                                         </div>
                                     </SwiperSlide>
                                 </Swiper>
@@ -230,8 +205,7 @@ const ExplorePalestine = () => {
                                             <img className="cursor-pointer" style={handleHideImg} src={img1} alt="" />
                                             <img className="cursor-pointer" style={handleShowImg} src={img2} alt="" />
                                             <h1 className="absolute z-50 left-3 bottom-4 cursor-pointer text-[10px] bg-[#f4f4f4] text-[#626262] p-1 rounded-sm">new</h1>
-                                            <p className="z-50 absolute top-2 right-3 text-3xl"><CiHeart /></p>
-                                            <button className={`bg-base-100 text-[12px] w-[90%] z-50 absolute bottom-4 rounded-sm font-extralight py-3 left-3 ${mouseOver ? '' : 'hidden'}`} onClick={handleQuick}>QUICK BUY</button>
+                                            <a href="#quickBuy" className={`bg-base-100 text-[12px] w-[90%] z-50 absolute bottom-4 rounded-sm font-extralight py-3 left-3 ${mouseOver ? '' : 'hidden'}`} onClick={handleQuick} >QUICK BUY</a>
                                         </div>
                                     </SwiperSlide>
                                     <SwiperSlide  >
@@ -239,8 +213,7 @@ const ExplorePalestine = () => {
                                             <img className="cursor-pointer" style={handleHideImg} src={img4} alt="" />
                                             <img className="cursor-pointer" style={handleShowImg} src={img3} alt="" />
                                             <h1 className="absolute z-50 left-3 bottom-4 cursor-pointer text-[10px] bg-[#f4f4f4] text-[#626262] p-1 rounded-sm">new</h1>
-                                            <p className="z-50 absolute top-2 right-3 text-3xl"><CiHeart /></p>
-                                            <button className={`bg-base-100 text-[12px] w-[90%] z-50 absolute bottom-4 rounded-sm font-extralight py-3 left-3 ${mouseOver ? '' : 'hidden'}`} onClick={handleQuick} >QUICK BUY</button>
+                                            <a href="#quickBuy" className={`bg-base-100 text-[12px] w-[90%] z-50 absolute bottom-4 rounded-sm font-extralight py-3 left-3 ${mouseOver ? '' : 'hidden'}`} onClick={handleQuick} >QUICK BUY</a>
                                         </div>
                                     </SwiperSlide>
                                 </Swiper>
@@ -342,9 +315,13 @@ const ExplorePalestine = () => {
                     </div>
                 </Slider>
             </div>
+            {/* slider card */}
+            <div className={`relative transition-right duration-500 ${slideCard ? 'right-0' : 'right-[-600px]'}`}>
+                <SlideCard></SlideCard>
+            </div>
 
             {/* Quick Buy section */}
-            <div className={`px-4 md:px-40 py-12 bg-[#f8f9fa] relative ${quickBuy ? '' : 'hidden'} `}>
+            <div  className={`px-4 md:px-40 py-12 bg-[#f8f9fa] relative ${quickBuy ? '' : 'hidden'} `}>
                 {/* left part */}
                 <div className="grid grid-cols-1 md:grid-cols-2  gap-10">
                     <div className="relative">
@@ -358,9 +335,9 @@ const ExplorePalestine = () => {
                         <p className="z-50 absolute top-2 right-3 text-3xl"><CiHeart /></p>
                         <div className="mt-4">
                             <Swiper slidesPerView={7}
-                                    spaceBetween={10}
-                                    >
-                                <SwiperSlide><img style={{borderBottom: '2px solid black'}} src={img1} alt="" /></SwiperSlide>
+                                spaceBetween={10}
+                            >
+                                <SwiperSlide><img style={{ borderBottom: '2px solid black' }} src={img1} alt="" /></SwiperSlide>
                                 <SwiperSlide><img src={img2} alt="" /></SwiperSlide>
                                 <SwiperSlide><img src={img3} alt="" /></SwiperSlide>
                                 <SwiperSlide><img src={img4} alt="" /></SwiperSlide>
@@ -416,7 +393,7 @@ const ExplorePalestine = () => {
                             <button className="border p-3 rounded-md" onClick={increaseNumber}><BsPlusLg /></button>
                         </div>
 
-                        <button className="my-8 py-3 rounded-md w-full bg-slate-950 text-[#e4e4e4]">ADD TO BAG</button>
+                        <button onClick={handleSlideCard} className="my-8 py-3 rounded-md w-full bg-slate-950 text-[#e4e4e4]">ADD TO BAG</button>
 
                         <a className="text-[#5b9bbe] underline flex items-center" href="">More Details <IoIosArrowForward /></a>
                     </div>
