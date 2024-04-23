@@ -7,7 +7,7 @@ const WomanMainSection = () => {
         <div>
             <WomanGallery></WomanGallery> 
             <ExplorePalestine></ExplorePalestine>    
-            <Gallery2></Gallery2>       
+            <Gallery2></Gallery2>   
         </div>
     );
 };
