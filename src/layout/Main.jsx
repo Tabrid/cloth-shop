@@ -8,7 +8,7 @@ const Main = () => {
 
     return (
         <div>
-            <div className="md:w-full fixed z-[99]">
+            <div className="md:w-full w-full fixed z-[99]">
                 <Navbar></Navbar>
             </div>
             
