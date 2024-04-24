@@ -43,17 +43,17 @@ const Navbar = () => {
                     </div>
                     <div className="lg:grid hidden">
                         <ul className={`menu flex menu-horizontal px-6 ${!scrolled && 'text-white'}`}>
-                            <li><a className="text-[16px]" href="">Woman</a></li>
-                            <li><a className="text-[16px]" href="">Man</a></li>
-                            <li><a className="text-[16px]" href="">Kids</a></li>
-                            <li><a className="text-[16px]" href="">About Us</a></li>
-                            <li><a className="text-[16px]" href="">Stores</a></li>
+                            <li><a className="text-[16px] hover:bg-transparent" href="">Woman</a></li>
+                            <li><a className="text-[16px] hover:bg-transparent" href="">Man</a></li>
+                            <li><a className="text-[16px] hover:bg-transparent" href="">Kids</a></li>
+                            <li><a className="text-[16px] hover:bg-transparent" href="">About Us</a></li>
+                            <li><a className="text-[16px] hover:bg-transparent" href="">Stores</a></li>
                         </ul>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <div className={`flex flex-col text-center ${!scrolled && 'text-white'}`}>
-                        <a className={`btn font-extrabold btn-ghost text-2xl scale-y-125 tracking-[-0.09em]`}>THE GIVING MOMENTS</a>
+                        <a className={`btn font-extrabold btn-ghost text-2xl scale-y-125 tracking-[-0.09em] hover:bg-transparent`}>THE GIVING MOMENTS</a>
                         <p className="text-[14px] font-extralight scale-y-125">MADE IN UAE</p>
                     </div>
 
