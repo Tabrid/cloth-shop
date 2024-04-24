@@ -3,9 +3,12 @@ import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 
 const Main = () => {
+
+
+
     return (
         <div>
-            <div className="md:w-full fixed z-[9999999999999]">
+            <div className="md:w-full fixed z-[99]">
                 <Navbar></Navbar>
             </div>
             
