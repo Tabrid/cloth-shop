@@ -9,10 +9,11 @@ import countries from "../../Data/Data"
 import { IoIosArrowBack, IoIosArrowDown, IoIosArrowForward, IoMdClose } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useLocation } from "react-router";
+import Men from "./Men";
+
 const Navbar = () => {
-    const { slideCard, setSlideCard } = useAuthContext();
-    const [activeComponent, setActiveComponent] = useState(null);
-    const [show, setShow] = useState(false)
+    const { slideCard, setSlideCard , setShowSearch} = useAuthContext();
+    const [men, setMen] = useState(false)
     const [hamburger, setHamburger] = useState(false)
     const [subHamburger, setSubHamburger] = useState(false)
     const [subHamburgerNumber, setSubHamburgerNumber] = useState(-1)
@@ -57,17 +58,6 @@ const Navbar = () => {
         setSubHamburgerSubCat(!subHamburgerSubCat)
     }
 
-
-
-
-    const handleMouseEnter = (component) => {
-        setActiveComponent(component);
-        setShow(true);
-    };
-
-    const handleMouseLeave = () => {
-        setShow(false);
-    };
 
 
     const handleSlideCard = () => {
@@ -282,7 +272,7 @@ const Navbar = () => {
                         <p className="text-[10px] font-extralight -pt-">MADE IN UAE</p>
                     </div>
                     <div className={`flex flex-col text-3xl text-center ${!scrolled && 'text-white'}`}>
-                        <a className="md:grid lg:ml-20  md:ml-20"><CiSearch /></a>
+                        <a className="md:grid lg:ml-20  md:ml-20 cursor-pointer" onClick={()=> setShowSearch(true)}><CiSearch /></a>
                     </div>
 
 
@@ -304,9 +294,8 @@ const Navbar = () => {
             <div className={`navbar  hidden mt-2 lg:flex justify-center ${scrolled && 'border-t border-slate-300'} `}>
                 <div className="lg:grid hidden">
                     <ul className={`menu flex menu-horizontal px-6 ${!scrolled && 'text-white'}`}>
-                        <li><a onMouseOver={() => setScrolled(true)} onMouseLeave={() => setScrolled(false)} className="text-[16px] hover:bg-transparent hover:underline" href="">Man</a></li>
-                        <li onMouseEnter={() => handleMouseEnter('women')}
-                            onMouseLeave={handleMouseLeave}><a className="text-[16px] hover:bg-transparent hover:underline  duration-300" href="">Woman</a></li>
+                        <li><a onMouseOver={() =>{setScrolled(true) , setMen(true)} } onMouseLeave={() =>{setScrolled(false) } } className="text-[16px] hover:bg-transparent hover:underline" href="">Man</a></li>
+                        <li ><a className="text-[16px] hover:bg-transparent hover:underline  duration-300" href="">Woman</a></li>
                         <li><a className="text-[16px] hover:bg-transparent hover:underline" href="">Kids</a></li>
                         <li><a className="text-[16px] hover:bg-transparent hover:underline" href="">About Us</a></li>
                         <li><a className="text-[16px] hover:bg-transparent hover:underline" href="">Stores</a></li>
@@ -314,21 +303,9 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <div>
-
-                {(activeComponent === 'men' || activeComponent === 'women') && show && (
-                    <div className="fixed inset-0 flex items-center justify-center ">
-                        <div className="bg-white p-8 rounded-lg shadow-lg">
-                            <h1 className="text-4xl text-gray-900">
-                                {activeComponent === 'men' ? "Men's Collection" : "Women's Collection"}
-                            </h1>
-                            <button className="mt-4 bg-gray-900 text-white py-2 px-4 rounded hover:bg-gray-800" onClick={handleMouseLeave}>
-                                Close
-                            </button>
-                        </div>
-                    </div>
-                )}
-            </div>
+             <div className={`${!men && 'hidden'}`} onMouseOver={() =>{setScrolled(true) , setMen(true)} } onMouseLeave={() =>{setScrolled(false) , setMen(false)} }>
+                <Men />
+            </div> 
         </div>
     );
 };

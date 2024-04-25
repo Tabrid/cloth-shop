@@ -1,0 +1,8 @@
+.searchBarInput {
+    @apply w-full border-transparent;
+  }
+  
+  .suggestionsList {
+    @apply z-50;
+  }
+  

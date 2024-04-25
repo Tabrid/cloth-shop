@@ -13,5 +13,6 @@ export const AuthContextProvider = ({ children }) => {
 	const [balance, setBalance] = useState(0);
 	const [location, setLocation] = useState({});
 	const [slideCard, setSlideCard] = useState(false)
-	return <AuthContext.Provider value={{ authUser, setAuthUser, refresh, setRefresh, balance, setBalance , location , setLocation ,slideCard, setSlideCard }}>{children}</AuthContext.Provider>;
+	const [showSearch , setShowSearch] = useState(false)
+	return <AuthContext.Provider value={{ authUser, setAuthUser, refresh, setRefresh, balance, setBalance , location , setLocation ,slideCard, setSlideCard ,showSearch , setShowSearch }}>{children}</AuthContext.Provider>;
 };
