@@ -6,17 +6,24 @@ import { useEffect, useState } from "react";
 import { useAuthContext } from "../../Context/AuthContext";
 import { FaCaretDown } from "react-icons/fa";
 import countries from "../../Data/Data"
+import Men from "./Men";
+import { useLocation } from "react-router-dom";
 const Navbar = () => {
-    const { slideCard, setSlideCard } = useAuthContext();
+    const { slideCard, setSlideCard , setShowSearch} = useAuthContext();
     const [activeComponent, setActiveComponent] = useState(null);
-    const [show, setShow] = useState(false)
+    const [men, setMen] = useState(false)
+    const location = useLocation();
+  
+    // Determine whether to apply a transparent or white background based on the current path
+    const isTransparent = location.pathname === '/';
+    console.log(isTransparent);
     const handleMouseEnter = (component) => {
         setActiveComponent(component);
-        setShow(true);
+        
     };
 
     const handleMouseLeave = () => {
-        setShow(false);
+       
     };
 
 
@@ -29,7 +36,6 @@ const Navbar = () => {
         }
     }
     const [scrolled, setScrolled] = useState(false)
-
     const handleScroll = () => {
         if (window.scrollY > 20) {
             setScrolled(true)
@@ -37,8 +43,14 @@ const Navbar = () => {
             setScrolled(false)
         }
     }
-
-    window.addEventListener('scroll', handleScroll)
+    
+    if (isTransparent) {
+        setScrolled(true)
+    } else {
+        window.addEventListener('scroll', handleScroll) 
+    }
+    
+    
     const texts = ["Hello", "Welcome", "Bonjour", "Hola"];
     const interval = 2000; // Change text every 2 seconds
     const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -51,7 +63,7 @@ const Navbar = () => {
         return () => clearInterval(intervalId);
     }, [texts, interval]);
     return (
-        <div className={`${scrolled ? 'bg-base-100' : 'bg-transparent'}`}>
+        <div className={`${scrolled || !isTransparent ? 'bg-base-100' : 'bg-transparent'}`}>
             <div className="navbar bg-gray-900 px-6">
                 <div className="flex navbar-start text-white gap-2 ">
                     <a><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="fill-current"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
@@ -131,7 +143,7 @@ const Navbar = () => {
                         <p className="text-[10px] font-extralight -pt-">MADE IN UAE</p>
                     </div>
                     <div className={`flex flex-col text-3xl text-center ${!scrolled && 'text-white'}`}>
-                        <a className="md:grid lg:ml-20  md:ml-20"><CiSearch /></a>
+                        <a className="md:grid lg:ml-20  md:ml-20 cursor-pointer" onClick={()=> setShowSearch(true)}><CiSearch /></a>
                     </div>
 
 
@@ -153,7 +165,7 @@ const Navbar = () => {
             <div className={`navbar mt-2 flex justify-center ${scrolled && 'border-t border-slate-300'} `}>
                 <div className="lg:grid hidden">
                     <ul className={`menu flex menu-horizontal px-6 ${!scrolled && 'text-white'}`}>
-                        <li><a onMouseOver={() => setScrolled(true)} onMouseLeave={() => setScrolled(false)} className="text-[16px] hover:bg-transparent hover:underline" href="">Man</a></li>
+                        <li><a onMouseOver={() =>{setScrolled(true) , setMen(true)} } onMouseLeave={() =>{setScrolled(false) } } className="text-[16px] hover:bg-transparent hover:underline" href="">Man</a></li>
                         <li onMouseEnter={() => handleMouseEnter('women')}
                             onMouseLeave={handleMouseLeave}><a className="text-[16px] hover:bg-transparent hover:underline  duration-300" href="">Woman</a></li>
                         <li><a className="text-[16px] hover:bg-transparent hover:underline" href="">Kids</a></li>
@@ -163,21 +175,9 @@ const Navbar = () => {
                 </div>
             </div>
 
-            <div>
-
-                {(activeComponent === 'men' || activeComponent === 'women') && show && (
-                    <div className="fixed inset-0 flex items-center justify-center ">
-                        <div className="bg-white p-8 rounded-lg shadow-lg">
-                            <h1 className="text-4xl text-gray-900">
-                                {activeComponent === 'men' ? "Men's Collection" : "Women's Collection"}
-                            </h1>
-                            <button className="mt-4 bg-gray-900 text-white py-2 px-4 rounded hover:bg-gray-800" onClick={handleMouseLeave}>
-                                Close
-                            </button>
-                        </div>
-                    </div>
-                )}
-            </div>
+             <div className={`${!men && 'hidden'}`} onMouseOver={() =>{setScrolled(true) , setMen(true)} } onMouseLeave={() =>{setScrolled(false) , setMen(false)} }>
+                <Men />
+            </div> 
         </div>
     );
 };
