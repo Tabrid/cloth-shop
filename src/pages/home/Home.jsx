@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import Banner from "../../components/banner/Banner";
 import WomanMainSection from "./womenSection/WomanMainSection";
-import SlideCard from "../../components/SlideCard/SlideCard";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
