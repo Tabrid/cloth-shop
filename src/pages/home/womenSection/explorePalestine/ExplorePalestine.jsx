@@ -18,7 +18,7 @@ import img4 from '../../../../assets/images/S106V12PBWM_2.webp'
 
 import { CiHeart } from "react-icons/ci";
 import { PiCoatHangerBold } from "react-icons/pi";
-import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowForward, IoMdClose } from "react-icons/io";
 import { BsPlusLg } from "react-icons/bs";
 import { HiOutlineMinus } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
@@ -580,7 +580,7 @@ const ExplorePalestine = () => {
 
             {/* Slider card */}
             <div className="relative">
-                <div className={`w-[80%] md:w-[40%] bg-base-100 shadow-2xl h-screen z-[999] p-6 fixed top-0 ${slideCard ? 'right-0 transition-right duration-500' : 'right-[-620px] transition-left duration-500'}`}>
+                <div className={`w-[80%] md:w-[40%] bg-base-100 shadow-2xl h-screen z-[99] p-6 fixed top-0 ${slideCard ? 'right-0 transition-right duration-500' : 'right-[-620px]'}`}>
                     <h1 className="font-bold text-3xl mb-6">Shopping bag(1)</h1>
                     <div className="grid md:grid-cols-4 gap-6 relative">
                         <div>
