@@ -3,6 +3,7 @@ import Main from "../layout/Main";
 import Home from "../pages/home/Home";
 import Collections from "../pages/Collection/Collection";
 
+
 const router = createBrowserRouter([
     {
         path:'/',
@@ -15,8 +16,8 @@ const router = createBrowserRouter([
             {
                 path:'/collections',
                 element:<Collections></Collections>
-            }
-        ]
+            },
+           ]
     }
 ])
 export default router;
