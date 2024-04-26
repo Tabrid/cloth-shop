@@ -30,7 +30,7 @@ const SlideCard = () => {
     };
 
     return (
-        <div className={`w-[80%] md:w-[40%] bg-base-100 shadow-2xl h-fit z-[999] p-6 fixed top-0 ${slideCard ? 'right-0 transition-right duration-500 ' : 'hidden right-[-620px] transition-left duration-500'}`}>
+        <div className={`right-0 transition-right duration-500 w-[80%] md:w-[40%] bg-base-100 shadow-2xl h-fit z-[999] p-6 fixed top-0 ${slideCard ? 'right-0 transition-right duration-500 ' : 'hidden right-[-620px] transition-left duration-500'}`}>
             <h1 className="font-bold text-3xl mb-6">Shopping bag(1)</h1>
             <div className="grid md:grid-cols-4 gap-6 relative">
                 <div>

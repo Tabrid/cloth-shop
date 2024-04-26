@@ -8,7 +8,6 @@ import { FaCaretDown, FaWhatsapp } from "react-icons/fa";
 import countries from "../../Data/Data"
 import { IoIosArrowBack, IoIosArrowDown, IoIosArrowForward, IoMdClose } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useLocation } from "react-router";
 import Men from "./Men";
 import { IoLogoFacebook } from "react-icons/io";
 import { FaInstagram } from "react-icons/fa";
@@ -19,29 +18,7 @@ const Navbar = () => {
     const [subHamburger, setSubHamburger] = useState(false)
     const [subHamburgerNumber, setSubHamburgerNumber] = useState(-1)
     const [subHamburgerSubCat, setSubHamburgerSubCat] = useState(false)
-
-    const location = useLocation();
-    useEffect(() => {
-        const handleScroll = () => {
-            // Check if the current path is the home page and the scroll position is greater than 20
-            if (location.pathname === '/' && window.scrollY > 20) {
-                setScrolled(true);
-            } else if (!location.pathname === '/') {
-                setScrolled(true);
-            }
-            else {
-                setScrolled(false);
-            }
-        };
-
-        // Add scroll event listener
-        window.addEventListener('scroll', handleScroll);
-
-        // Cleanup function to remove the scroll event listener
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [location.pathname]);
+    const [scrolled, setScrolled] = useState(false)
 
     const handleHamburger = () => {
         setHamburger(!hamburger)
@@ -69,9 +46,17 @@ const Navbar = () => {
             document.body.style.overflow = 'auto';
         }
     }
-    const [scrolled, setScrolled] = useState(false)
 
 
+    const handleNavbarScroll = () => {
+        if (window.scrollY > 20 ) {
+            setScrolled(true)
+        }else{
+            setScrolled(false)
+        }
+    }
+
+    window.addEventListener('scroll', handleNavbarScroll)
 
 
     const texts = ["Hello", "Welcome", "Bonjour", "Hola"];
@@ -149,7 +134,7 @@ const Navbar = () => {
                 <div className="navbar-start">
                     <div className="dropdown flex md:hidden">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden  ">
-                            <p onClick={handleHamburger} className={`${scrolled ? '' : 'text-white'} text-2xl`}><GiHamburgerMenu /></p>
+                            <p onClick={handleHamburger} className={`text-2xl`}><GiHamburgerMenu /></p>
                         </div>
 
                         {/*  */}
@@ -267,8 +252,8 @@ const Navbar = () => {
 
 
                     </div>
-                    <div className={`flex  flex-col text-center md:hidden ${!scrolled && 'text-white'}`}>
-                        <a className={`font-bold text-[10px]`}>THE GIVING MOMENTS</a>
+                    <div className={`flex  flex-col text-center md:hidden `}>
+                        <a className={` ${scrolled ? '' : 'text-white'} font-bold text-[10px]`}>THE GIVING MOMENTS</a>
                         <p className="text-[10px] font-extralight -pt-">MADE IN UAE</p>
                     </div>
                     <div className={`flex flex-col text-3xl text-center ${!scrolled && 'text-white'}`}>
@@ -278,13 +263,13 @@ const Navbar = () => {
 
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <div className={`flex flex-col text-center ${!scrolled && 'text-white'}`}>
+                    <div className={`${scrolled ? '' : 'text-white'} flex flex-col text-center`}>
                         <a className={`btn font-extrabold btn-ghost text-2xl scale-y-125 tracking-[-0.09em] hover:bg-transparent`}>THE GIVING MOMENTS</a>
                         <p className="text-[12px] font-extralight scale-y-110">MADE IN UAE</p>
                     </div>
 
                 </div>
-                <div className={`navbar-end px-6 md:gap-6 gap-1 md:text-3xl ${!scrolled && 'text-white '}`}>
+                <div className={`navbar-end px-6 md:gap-6 gap-1 md:text-3xl `}>
                     <a ><CiHeart /></a>
                     <a ><CiUser /></a>
 
