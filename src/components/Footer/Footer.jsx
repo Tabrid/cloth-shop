@@ -1,9 +1,13 @@
+import { useLocation } from "react-router-dom";
 
 
 const Footer = () => {
+    const location = useLocation()
     return (
         <div>
-            <h1 className=" text-center w-full text-3xl font-semibold my-10">Humanity In Motion 🖤</h1>
+            {
+                location.pathname == '/' ? <h1 className=" text-center w-full text-3xl font-semibold my-10">Humanity In Motion 🖤</h1> : ''
+            }
             <footer className="footer p-10  text-base-content">
                 <nav>
 

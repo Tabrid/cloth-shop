@@ -8,7 +8,7 @@ const SearchBar = () => {
     const { showSearch , setShowSearch} = useAuthContext();
 
     return (
-        <div className={`flex justify-center items-center w-full h-96 bg-white  overflow-hidden  mb-4 fixed top-0 z-[200] ${!showSearch && 'hidden'}`}>
+        <div className={`flex justify-center items-center w-full h-96 bg-white  overflow-hidden  mb-4 fixed top-0 z-[2000] ${!showSearch && 'hidden'}`}>
 
             <div className='w-full flex text-2xl mx-24 justify-evenly'>
                 <div className='flex text-2xl w-2/3 items-center'>
