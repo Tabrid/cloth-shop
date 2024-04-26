@@ -278,7 +278,7 @@ const Navbar = () => {
             </div>
 
             {/* Nav Bar bugs is appearing from here from the functions */}
-            <div onMouseOver={() => { setScrolled(true) }} onMouseLeave={() => { setScrolled(false), setMen(false) }} className={`navbar  hidden mt-2 lg:flex justify-center ${scrolled && 'border-t border-slate-300'} `}>
+            <div  onMouseLeave={() => { setMen(false) }} className={`navbar  hidden mt-2 lg:flex justify-center ${scrolled && 'border-t border-slate-300'} `}>
                 <div className="lg:grid hidden">
                     <ul className={`menu flex menu-horizontal px-6 ${!scrolled && 'text-white'}`}>
                         <li><a onMouseOver={() => { setScrolled(true), setMen(true) }} className="text-[16px] hover:bg-transparent hover:underline" href="">Man</a></li>
