@@ -7,11 +7,11 @@ import { useAuthContext } from "../../Context/AuthContext";
 
 
 const SlideCard = () => {
-    const { slideCard, setSlideCard} = useAuthContext();
+    const { slideCard, setSlideCard } = useAuthContext();
 
 
     const handleSlideCard = () => {
-        setSlideCard(!slideCard) 
+        setSlideCard(!slideCard)
         if (!slideCard) {
             document.body.style.overflow = 'hidden';
         } else {
@@ -46,23 +46,33 @@ const SlideCard = () => {
                     <input type="text" value={number} className=" text-center w-[100%]" />
                     <button className="" onClick={increaseNumber}><BsPlusLg /></button>
                 </div>
+                <div className="col-span-2">
+                    <h1 className="text-xl font-semibold">Oversized Palestine Hoodie</h1>
+                    <p>Colour: Pithch Black</p>
+                    <p>Size (UK): M</p>
+                    <p>8 in stock</p>
+                    <div className="flex border w-20 my-5 py-2 px-2 rounded-md">
+                        <button className="" onClick={decreaseNumber}><HiOutlineMinus /></button>
+                        <input type="text" value={number} className=" text-center w-[100%]" />
+                        <button className="" onClick={increaseNumber}><BsPlusLg /></button>
+                    </div>
+                </div>
+                <div>
+                    <h1>649 AED</h1>
+                </div>
+
+
+                <p onClick={handleSlideCard} className="absolute top-[-50px] right-0 text-2xl cursor-pointer"><IoMdClose /></p>
             </div>
-            <div>
-                <h1>649 AED</h1>
+            <div className="grid gap-4 mt-32">
+                <div className="flex justify-between items-center">
+                    <h1 className="font-bold text-xl">Subtotal:</h1>
+                    <h1 className="font-bold text-xl">3,655 AED</h1>
+                </div>
+                <p>Tax include <span className="text-[#5b9bbe]"><a href="">Shipping</a></span> calculated at checkout.</p>
+                <button className="btn bg-black text-white">CHECK OUT</button>
             </div>
-            
-        
-            <p onClick={handleSlideCard} className="absolute top-[-50px] right-0 text-2xl cursor-pointer"><IoMdClose /></p>
         </div>
-        <div className="grid gap-4 mt-32">
-            <div className="flex justify-between items-center">
-                <h1 className="font-bold text-xl">Subtotal:</h1>
-                <h1 className="font-bold text-xl">3,654 AED</h1>
-            </div>
-            <p>Tax include <span className="text-[#5b9bbe]"><a href="">Shipping</a></span> calculated at checkout.</p>
-            <button className="btn bg-black text-white">CHECK OUT</button>
-        </div>
-    </div>
     );
 };
 

@@ -4,9 +4,9 @@ import { CiUser } from "react-icons/ci";
 import { CiSearch } from "react-icons/ci";
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../../Context/AuthContext";
-import { FaCaretDown } from "react-icons/fa";
+import { FaCaretDown, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import countries from "../../Data/Data"
-import { IoIosArrowBack, IoIosArrowDown, IoIosArrowForward, IoMdClose } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowDown, IoIosArrowForward, IoLogoFacebook, IoMdClose } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 import Men from "./Men";
@@ -41,7 +41,6 @@ const NavigationBar = () => {
     }
 
 
-
     const handleSlideCard = () => {
         setSlideCard(!slideCard)
         if (!slideCard) {
@@ -66,12 +65,11 @@ const NavigationBar = () => {
     }, [texts, interval]);
     return (
         <div className={`bg-base-100`}>
-            <div className="navbar bg-gray-900 px-6">
+            <div className=" flex items-center bg-gray-900 px-10 h-[35px]">
                 <div className="hidden lg:flex navbar-start text-white gap-2 ">
-                    <a><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="fill-current"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
-                    </a>
-                    <a><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="fill-current"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg></a>
-                    <a><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" className="fill-current"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
+                    <IoLogoFacebook />
+                    <FaInstagram />
+                    <FaWhatsapp />
                 </div>
                 <div className="navbar-center mx-auto">
                     {texts.map((text, index) => (
@@ -83,13 +81,13 @@ const NavigationBar = () => {
 
                 {/*  */}
                 <div className="navbar-end hidden lg:flex gap-3 cursor-pointer" onClick={() => document.getElementById('my_modal_3').showModal()}>
-                    <div className="text-white flex gap-1 items-center justify-center">
-                        <img className="w-7 h-7 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg" alt="" />
-                        <p>Bangladesh</p>
+                    <div className="text-white flex gap-2 items-center justify-center">
+                        <img className="w-5 h-5 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg" alt="" />
+                        <p className="text-xs">Bangladesh</p>
                         <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
                     </div>
-                    <div className="text-white flex gap-1 items-center justify-center">
-                        <p>English</p>
+                    <div className="text-white flex gap-2 items-center justify-center">
+                        <p className="text-xs">English</p>
                         <FaCaretDown className="transition-all duration-200 group-hover:rotate-180" />
 
                     </div>
@@ -271,10 +269,10 @@ const NavigationBar = () => {
                     <a className="cursor-pointer" onClick={handleSlideCard}><HiOutlineShoppingBag /></a>
                 </div>
             </div>
-            <div className={`navbar  hidden mt-2 lg:flex justify-center`}>
+            <div  className={`navbar hidden  mt-2 lg:flex justify-center border-t border-slate-300 `}>
                 <div className="lg:grid hidden">
                     <ul className={`menu flex menu-horizontal px-6 `}>
-                        <li><a onMouseOver={() => { setMen(true) }} onMouseLeave={() => { }} className="text-[16px] hover:bg-transparent hover:underline" href="">Man</a></li>
+                        <li><a onMouseOver={() => {  setMen(true) }} className="text-[16px] hover:bg-transparent hover:underline" href="">Man</a></li>
                         <li ><a className="text-[16px] hover:bg-transparent hover:underline  duration-300" href="">Woman</a></li>
                         <li><a className="text-[16px] hover:bg-transparent hover:underline" href="">Kids</a></li>
                         <li><a className="text-[16px] hover:bg-transparent hover:underline" href="">About Us</a></li>
