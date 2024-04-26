@@ -578,10 +578,7 @@ const ExplorePalestine = () => {
                 </div>
             </div>
 
-            {/* Slider card */}
-            <div className="relative">
-                <SlideCard />
-            </div>
+           
             <style>{`
                 .swiper-button-prev,
                 .swiper-button-next {

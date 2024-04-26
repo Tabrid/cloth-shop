@@ -3,6 +3,7 @@ import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import SearchBar from "../components/SearchBar/SearchBar";
 import NavigationBar from "../components/navbar/NavigationBar";
+import SlideCard from "../components/SlideCard/SlideCard";
 
 
 const Main = () => {
@@ -22,6 +23,10 @@ const Main = () => {
                 </div>
             </div>
             <SearchBar></SearchBar>
+            {/* Slider card */}
+            <div className="relative">
+                <SlideCard />
+            </div>
             <Outlet></Outlet>
             <Footer></Footer>
         </div>

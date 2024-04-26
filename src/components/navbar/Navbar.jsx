@@ -269,13 +269,15 @@ const Navbar = () => {
                     </div>
 
                 </div>
-                <div className={`navbar-end px-6 md:gap-6 gap-1 md:text-3xl `}>
+                <div className={`${scrolled ? '' : 'text-white'} navbar-end px-6 md:gap-6 gap-1 md:text-3xl `}>
                     <a ><CiHeart /></a>
                     <a ><CiUser /></a>
 
                     <a className="cursor-pointer" onClick={handleSlideCard}><HiOutlineShoppingBag /></a>
                 </div>
             </div>
+
+            {/* Nav Bar bugs is appearing from here from the functions */}
             <div onMouseOver={() => { setScrolled(true) }} onMouseLeave={() => { setScrolled(false), setMen(false) }} className={`navbar  hidden mt-2 lg:flex justify-center ${scrolled && 'border-t border-slate-300'} `}>
                 <div className="lg:grid hidden">
                     <ul className={`menu flex menu-horizontal px-6 ${!scrolled && 'text-white'}`}>
