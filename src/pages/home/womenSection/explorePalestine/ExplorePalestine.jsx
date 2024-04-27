@@ -18,12 +18,12 @@ import img4 from '../../../../assets/images/S106V12PBWM_2.webp'
 
 import { CiHeart } from "react-icons/ci";
 import { PiCoatHangerBold } from "react-icons/pi";
-import { IoIosArrowForward, IoMdClose } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 import { BsPlusLg } from "react-icons/bs";
 import { HiOutlineMinus } from "react-icons/hi";
 import { MdClose } from "react-icons/md";
 
-import SlideCard from "../../../../components/SlideCard/SlideCard";
+
 // import required modules
 import { Navigation } from 'swiper/modules';
 import { useState } from "react";

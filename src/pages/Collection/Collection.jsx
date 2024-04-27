@@ -6,15 +6,19 @@ import img3 from '../../assets/images/S106V12PBWM_1.jpg'
 import img4 from '../../assets/images/S106V12PBWM_2.webp'
 import { Navigation } from "swiper/modules";
 import { CiHeart } from "react-icons/ci";
-// Import Swiper styles
-import './SwiperJS.css';
-import 'swiper/css/navigation';
-import './style.css'
+
+
+
 function Collection() {
   const [num, setNum] = useState(null);
   const [mouseOver, setMouseOver] = useState(false)
   const data = ['Data 1', 'Data 2', 'Data 3', 'Data 4', 'Data 5', 'Data 6', 'Data 7', 'Data 8', 'Data 9'];
   const [tabData, setTabData] = useState({});
+  const [quickBuy, SetQuickBuy] = useState(false)
+
+  const handleQuick = () => {
+        SetQuickBuy(!quickBuy)
+    }
   // Create an array to group data items into sets of 3
   const groupedData = [];
   for (let i = 0; i < data.length; i++) {
@@ -114,7 +118,8 @@ function Collection() {
                       </div>
                     </div>
                   </div>
-                </div></div>
+                </div>
+                </div>
               ))
             }
 
@@ -126,6 +131,13 @@ function Collection() {
           </div>
         ))
       }
+{/* This Style is for navigate arrow icon show */}
+      <style>{`
+          .swiper-button-prev,
+          .swiper-button-next {
+          visibility: ${mouseOver ? 'visible !important' : 'hidden'};
+          }`
+      }</style>
 
     </div>
 
