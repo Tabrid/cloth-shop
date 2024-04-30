@@ -5,6 +5,7 @@ import Collections from "../pages/Collection/Collection";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import WishList from "../pages/WishList/WishList";
+import Payment from "../pages/PaymentPage/Payment";
 
 
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
                 element:<WishList></WishList>
             },
            ]
+    },
+    {
+        path:"/payment",
+        element:<Payment></Payment>
     }
 ])
 export default router;
