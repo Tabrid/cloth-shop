@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import WishList from "../pages/WishList/WishList";
 import Payment from "../pages/PaymentPage/Payment";
+import Faq from "../pages/Faq/Faq";
 
 
 const router = createBrowserRouter([
@@ -33,11 +34,16 @@ const router = createBrowserRouter([
                 path:'/wishlist',
                 element:<WishList></WishList>
             },
+            {
+                path:'/faqs',
+                element:<Faq></Faq>
+            }
            ]
     },
     {
         path:"/payment",
         element:<Payment></Payment>
-    }
+    },
+    
 ])
 export default router;
