@@ -7,6 +7,7 @@ import SignUp from "../pages/SignUp/SignUp";
 import WishList from "../pages/WishList/WishList";
 import Payment from "../pages/PaymentPage/Payment";
 import Faq from "../pages/Faq/Faq";
+import ShippingAndDelivery from "../pages/ShippingAndDelivery/ShippingAndDelivery";
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
             {
                 path:'/faqs',
                 element:<Faq></Faq>
+            },
+            {
+                path:'/shipping',
+                element:<ShippingAndDelivery></ShippingAndDelivery>
             }
            ]
     },
