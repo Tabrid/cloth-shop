@@ -10,6 +10,7 @@ import { IoIosArrowBack, IoIosArrowDown, IoIosArrowForward, IoLogoFacebook, IoMd
 import { GiHamburgerMenu } from "react-icons/gi";
 
 import Men from "./Men";
+import { Link } from "react-router-dom";
 
 const NavigationBar = () => {
     const { slideCard, setSlideCard, setShowSearch } = useAuthContext();
@@ -80,7 +81,7 @@ const NavigationBar = () => {
                 </div>
 
                 {/*  */}
-                <div className="navbar-end hidden lg:flex gap-3 cursor-pointer" onClick={() => document.getElementById('my_modal_3').showModal()}>
+                <div className="navbar-end hidden lg:flex gap-3 cursor-pointer" onClick={() => document.getElementById('my_modal_4').showModal()}>
                     <div className="text-white flex gap-2 items-center justify-center">
                         <img className="w-5 h-5 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Flag_of_Bangladesh.svg" alt="" />
                         <p className="text-xs">Bangladesh</p>
@@ -94,7 +95,7 @@ const NavigationBar = () => {
                 </div>
 
             </div>
-            <dialog id="my_modal_3" className="modal">
+            <dialog id="my_modal_4" className="modal">
                 <div className="modal-box">
                     <form method="dialog">
                         {/* if there is a button in form, it will close the modal */}
@@ -257,22 +258,23 @@ const NavigationBar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <div className={`'} flex flex-col text-center`}>
-                        <a className={`btn font-extrabold btn-ghost text-2xl scale-y-125 tracking-[-0.09em] hover:bg-transparent`}>THE GIVING MOMENTS</a>
-                        <p className="text-[12px] font-extralight scale-y-110">MADE IN UAE</p>
+                        {/* <a className={`btn font-extrabold btn-ghost text-2xl scale-y-125 tracking-[-0.09em] hover:bg-transparent`}>THE GIVING MOMENTS</a> */}
+                        <img className="w-[200px]" src="https://i.ibb.co/C6xL0N5/new-logo-black.png" alt="" />
+                        <p className="text-[12px] mt-2 font-extralight scale-y-110">MADE IN UAE</p>
                     </div>
 
                 </div>
                 <div className={`navbar-end px-6 md:gap-6 gap-1 md:text-3xl `}>
-                    <a ><CiHeart /></a>
-                    <a ><CiUser /></a>
+                    <Link to='/wishlist'><a ><CiHeart /></a></Link>
+                    <Link to='/login'><a ><CiUser /></a></Link>
 
                     <a className="cursor-pointer" onClick={handleSlideCard}><HiOutlineShoppingBag /></a>
                 </div>
             </div>
-            <div  className={`navbar hidden  mt-2 lg:flex justify-center border-t border-slate-300 `}>
+            <div className={`navbar hidden  mt-2 lg:flex justify-center border-t border-slate-300 `}>
                 <div className="lg:grid hidden">
                     <ul className={`menu flex menu-horizontal px-6 `}>
-                        <li><a onMouseOver={() => {  setMen(true) }} className="text-[16px] hover:bg-transparent hover:underline" href="">Man</a></li>
+                        <li><a onMouseOver={() => { setMen(true) }} className="text-[16px] hover:bg-transparent hover:underline" href="">Man</a></li>
                         <li ><a className="text-[16px] hover:bg-transparent hover:underline  duration-300" href="">Woman</a></li>
                         <li><a className="text-[16px] hover:bg-transparent hover:underline" href="">Kids</a></li>
                         <li><a className="text-[16px] hover:bg-transparent hover:underline" href="">About Us</a></li>
@@ -281,7 +283,7 @@ const NavigationBar = () => {
                 </div>
             </div>
 
-            <div className={`${!men && 'hidden'}`} onMouseOver={() => {  setMen(true) }} onMouseLeave={() => { setMen(false) }}>
+            <div className={`${!men && 'hidden'}`} onMouseOver={() => { setMen(true) }} onMouseLeave={() => { setMen(false) }}>
                 <Men />
             </div>
         </div>

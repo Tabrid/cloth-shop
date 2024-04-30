@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
@@ -17,13 +18,13 @@ const Login = () => {
                         <div className="flex flex-col relative">
                             <label htmlFor="password" className="text-sm font-medium text-gray-700">Password</label>
                             <input type="password" name="password" id="password" className="px-4 py-2 rounded-sm border border-black  focus:border-2 h-[50px]" required />
-                            <a href="#" className="absolute mt-2 right-2 top-1/2 transform -translate-y-1/2 text-sm text-[#5b9bbe] ">Forgot your password?</a>
+                            <Link to='/reset-password'><a href="#" className="absolute mt-2 right-2 top-1/2 transform -translate-y-1/2 text-sm text-[#5b9bbe] ">Forgot your password?</a></Link>
                         </div>
 
 
                         <div className="flex space-x-4 items-center justify-between">
                             <button type="submit" className="h-[50px] inline-block bg-[#343a40] px-4 py-2 w-[95px] text-white font-medium rounded-sm">LOGIN</button>
-                            <a href="#" className="text-sm text-[#5b9bbe] ">Create account</a>
+                            <Link to='/sign-up'><a href="#" className="text-sm text-[#5b9bbe] ">Create account</a></Link>
                         </div>
                     </form>
                 </div>

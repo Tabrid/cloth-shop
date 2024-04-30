@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 
 function SignUp() {
@@ -35,7 +36,7 @@ function SignUp() {
                             
                         </div>
                         
-                    </form><a href="#" className=" text-sm "><span className="text-[#5b9bbe] ">Log in with an existing account</span> or <span className="text-[#5b9bbe] ">Return to Store</span></a>
+                    </form><a href="#" className=" text-sm "><Link to='/login'><span className="text-[#5b9bbe] ">Log in with an existing account</span></Link> or <Link to='/'><span className="text-[#5b9bbe] ">Return to Store</span></Link></a>
                 </div>
             </div>
         </div>

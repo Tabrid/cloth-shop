@@ -11,6 +11,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Men from "./Men";
 import { IoLogoFacebook } from "react-icons/io";
 import { FaInstagram } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const Navbar = () => {
     const { slideCard, setSlideCard, setShowSearch } = useAuthContext();
     const [men, setMen] = useState(false)
@@ -264,14 +265,15 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <div className={`${scrolled ? '' : 'text-white'} flex flex-col text-center`}>
-                        <a className={`btn font-extrabold btn-ghost text-2xl scale-y-125 tracking-[-0.09em] hover:bg-transparent`}>THE GIVING MOMENTS</a>
-                        <p className="text-[12px] font-extralight scale-y-110">MADE IN UAE</p>
+                        {/* <a className={`btn font-extrabold btn-ghost text-2xl scale-y-125 tracking-[-0.09em] hover:bg-transparent`}>THE GIVING MOMENTS</a>
+                        <p className="text-[12px] font-extralight scale-y-110">MADE IN UAE</p> */}
+                        <img className="w-[200px]" src="https://i.ibb.co/C6xL0N5/new-logo-black.png" alt="" />
                     </div>
 
                 </div>
                 <div className={`${scrolled ? '' : 'text-white'} navbar-end px-6 md:gap-6 gap-1 md:text-3xl `}>
-                    <a ><CiHeart /></a>
-                    <a ><CiUser /></a>
+                    <Link to='/wishlist'><a ><CiHeart /></a></Link>
+                    <Link to='/login'><a ><CiUser /></a></Link>
 
                     <a className="cursor-pointer" onClick={handleSlideCard}><HiOutlineShoppingBag /></a>
                 </div>
