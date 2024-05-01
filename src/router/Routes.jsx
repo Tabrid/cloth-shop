@@ -9,6 +9,9 @@ import Payment from "../pages/PaymentPage/Payment";
 import Faq from "../pages/Faq/Faq";
 import ShippingAndDelivery from "../pages/ShippingAndDelivery/ShippingAndDelivery";
 import ReturnsAndFunds from "../pages/ReturnsAndFunds/ReturnsAndFunds";
+import Information from "../pages/PaymentPage/information/Information";
+import Shipping from "../pages/PaymentPage/Shipping/Shipping";
+import GatewayPage from "../pages/PaymentPage/GatewayPage/GatewayPage";
 
 
 const router = createBrowserRouter([
@@ -52,8 +55,23 @@ const router = createBrowserRouter([
            ]
     },
     {
-        path:"/payment",
-        element:<Payment></Payment>
+        path:"payment/",
+        element:<Payment></Payment>,
+        children:[
+            {
+                path:'information',
+                element:<Information></Information>
+            },
+            {
+                path:'shipping',
+                element:<Shipping></Shipping>
+            }
+            ,
+            {
+                path:'payment-method',
+                element:<GatewayPage></GatewayPage>
+            }
+        ]
     },
     
 ])

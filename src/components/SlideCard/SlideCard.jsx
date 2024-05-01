@@ -103,7 +103,7 @@ const SlideCard = () => {
                     </span>{" "}
                     calculated at checkout.
                 </p>
-                <Link to='/payment'> <button className="btn bg-black text-white">CHECK OUT</button> </Link>
+                <a href="payment/information"> <button className="btn bg-black text-white">CHECK OUT</button> </a>
             </div>
         </div>
     );
