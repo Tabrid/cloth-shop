@@ -14,24 +14,118 @@ import { PiCoatHangerBold } from "react-icons/pi";
 import { IoIosArrowDown } from "react-icons/io";
 
 
-function Collection() {
-  const [num, setNum] = useState(null);
+
+
+
+function CardComponent({ setShow , setNum ,item }) {
+  
   const [mouseOver, setMouseOver] = useState(false)
+  return (
+    <div  className="w-full  gap-5 cursor-pointer" onMouseEnter={()=>setMouseOver(true)} onMouseLeave={()=>setMouseOver(false)}><div>
+      <div className="card bg-base-100 md:w-full w-[80%] mx-auto">
+        {/* Swiper div. single card contains all images */}
+        <div >
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={30}
+            loop={true}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={true}
+            modules={[Navigation]}
+            className="mySwiper"
+          >
+            <SwiperSlide  >
+              <div className="relative">
+                <img
+                  style={{ display: mouseOver ? 'grid' : 'none' }}
+                  className="cursor-pointer"
+                  src={img1}
+                  alt=""
+                />
+
+                <img style={{ display: mouseOver ? 'none' : 'grid ' }} className="cursor-pointer hidden" src={img2} alt="" />
+                <h1 className="absolute z-50 left-3 bottom-4 cursor-pointer text-[10px] bg-[#f4f4f4] text-[#626262] p-1 rounded-sm">new</h1>
+                <p className="z-50 absolute top-2 right-3 text-3xl"><CiHeart /></p>
+                <a className={`bg-base-100 cursor-pointer text-[12px] w-[90%] z-50 absolute bottom-4 rounded-sm font-extralight py-3 left-3 ${mouseOver ? '' : 'hidden'}`} onClick={()=> {setShow(true) ,setNum(item.serial)}}  >QUICK BUY</a>
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="relative">
+                <img
+                  style={{ display: mouseOver  ? 'grid' : 'none' }}
+                  className="cursor-pointer"
+                  src={img1}
+                  alt=""
+                />
+
+                <img style={{ display: mouseOver ? 'none' : 'grid ' }} className="cursor-pointer hidden" src={img2} alt="" />
+                <h1 className="absolute z-50 left-3 bottom-4 cursor-pointer text-[10px] bg-[#f4f4f4] text-[#626262] p-1 rounded-sm">new</h1>
+                <p className="z-50 absolute top-2 right-3 text-3xl"><CiHeart /></p>
+
+                <a className={`bg-base-100 cursor-pointer text-[12px] w-[90%] z-50 absolute bottom-4 rounded-sm font-extralight py-3 left-3 ${mouseOver  ? '' : 'hidden'}`} onClick={()=> setShow(true)}>QUICK BUY</a>
+              </div>
+            </SwiperSlide>
+          </Swiper>
+        </div>
+        <div className="card-body py-0 pl-0 pr-4">
+          <p className="text-[10px] py-2">ETHICAL INDIAN ORGANIC COTTON BLEND</p>
+          <p className="-mt-4 text-[18px]">Oversized Palestine T-Shirt 349 AED</p>
+          {/* color div */}
+          <div className="grid grid-cols-5">
+            <div className="border hover:border-black  w-8 h-8 flex justify-center items-center rounded-full">
+              <div className="bg-[#ff9393]  w-6 h-6  rounded-full "></div>
+            </div>
+            <div className="border hover:border-black  w-8 h-8 flex justify-center items-center rounded-full">
+              <div className="bg-black  w-6 h-6  rounded-full "></div>
+            </div>
+            <div className="border hover:border-black  w-8 h-8 flex justify-center items-center rounded-full">
+              <div className="bg-[#6fff9c] w-6 h-6  rounded-full "></div>
+            </div>
+            <div className="border hover:border-black  w-8 h-8 flex justify-center items-center rounded-full">
+              <div className="bg-[#ffff5c] w-6 h-6  rounded-full "></div>
+            </div>
+            <div className="border hover:border-black  w-8 h-8 flex justify-center items-center rounded-full">
+              <div className="bg-[#5c8fff] w-6 h-6  rounded-full "></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* This Style is for navigate arrow icon show */}
+      <style>{`
+          .swiper-button-prev,
+          .swiper-button-next {
+          visibility: ${mouseOver ? 'visible !important' : 'hidden'};
+          }`
+          }</style>
+    </div>
+    </div>
+  );
+}
+
+
+
+
+
+function Test() {
+  const [num, setNum] = useState(null);
   const data = ['Data 1', 'Data 2', 'Data 3', 'Data 4', 'Data 5', 'Data 6', 'Data 7', 'Data 8', 'Data 9'];
   const [number, setNumber] = useState(1);
   const [roted, setRoted] = useState(null)
-  
+
   // Create an array to group data items into sets of 3
   const groupedData = [];
   for (let i = 0; i < data.length; i++) {
     const groupNumber = Math.floor(i / 3) + 1; // Calculate the group number
     const dataWithSerial = {
       data: data[i],
-      serial: groupNumber
+      serial: groupNumber,
+      index: i
     }; // Add serial number to data item
     groupedData.push(dataWithSerial);
   }
-
+  console.log(roted);
   console.log(groupedData);
   const groupedData2 = [];
   for (let i = 0; i < groupedData.length; i += 3) {
@@ -40,21 +134,7 @@ function Collection() {
 
   console.log(groupedData2);
   const [show, setShow] = useState(false);
-  const handleShowImg = {
-    display: mouseOver ? 'grid' : 'none'
-  }
-  const handleHideImg = {
-    display: mouseOver ? 'none' : 'grid'
-  }
-  const handleOnMouseEnter = () => {
-    setMouseOver(true)
-
-  };
-  const handleOnMouseLeave = () => {
-
-    setMouseOver(false)
-
-  };
+  
   const decreaseNumber = () => {
     if (number > 1) {
       setNumber(prevNumber => prevNumber - 1);
@@ -90,136 +170,17 @@ function Collection() {
         </div>
       </div>
       <div className="flex  mt-5 gap-2">
-        <div className="w-1/3">
-          
-          <div tabIndex={0} className="collapse collapse-arrow ">
-            <div className="collapse-title text-xl font-medium">
-              Gender
-            </div>
-            <div className="collapse-content">
-              <p>tabIndex={0} attribute is necessary to make the div focusable</p>
-            </div>
-          </div>
-          <div tabIndex={0} className="collapse collapse-arrow ">
-            <div className="collapse-title text-xl font-medium">
-              Colour
-            </div>
-            <div className="collapse-content">
-              <p>tabIndex={0} attribute is necessary to make the div focusable</p>
-            </div>
-          </div>
-          <div tabIndex={0} className="collapse collapse-arrow ">
-            <div className="collapse-title text-xl font-medium">
-              Size (UK)
-            </div>
-            <div className="collapse-content">
-              <p>tabIndex={0} attribute is necessary to make the div focusable</p>
-            </div>
-          </div>
-          <div tabIndex={0} className="collapse collapse-arrow ">
-            <div className="collapse-title text-xl font-medium">
-              Fit
-            </div>
-            <div className="collapse-content">
-              <p>tabIndex={0} attribute is necessary to make the div focusable</p>
-            </div>
-          </div>
-          <div tabIndex={0} className="collapse collapse-arrow ">
-            <div className="collapse-title text-xl font-medium">
-              Category
-            </div>
-            <div className="collapse-content">
-              <p>tabIndex={0} attribute is necessary to make the div focusable</p>
-            </div>
-          </div>
-          <div tabIndex={0} className="collapse collapse-arrow ">
-            <div className="collapse-title text-xl font-medium">
-              Range
-            </div>
-            <div className="collapse-content">
-              <p>tabIndex={0} attribute is necessary to make the div focusable</p>
-            </div>
-          </div>
-          <div tabIndex={0} className="collapse collapse-arrow ">
-            <div className="collapse-title text-xl font-medium">
-              Price
-            </div>
-            <div className="collapse-content">
-              <p>tabIndex={0} attribute is necessary to make the div focusable</p>
-            </div>
-          </div>
-        </div>
-        <div className="w-2/3">
+        <div className="">
           {
-            groupedData2.length > 0 && groupedData2.map((group, index) => (
-              <div key={index} className="grid grid-cols-3 gap-10">
+            groupedData2.length > 0 && groupedData2.map((group, Outerindex) => (
+              <div key={Outerindex} className="grid grid-cols-3 gap-10">
                 {
                   group.map((item, index) => (
-                    <div onClick={() => { setShow(true), setNum(item.serial), setTabData(item) }} className="w-full  gap-5 cursor-pointer" key={index}><div>
-                      <div className="card bg-base-100 md:w-full w-[80%] mx-auto">
-                        {/* Swiper div. single card contains all images */}
-                        <div onMouseOver={()=>{setMouseOver(true) , setRoted(index)}} onMouseLeave={handleOnMouseLeave} >
-                          <Swiper
-                            slidesPerView={1}
-                            spaceBetween={30}
-                            loop={true}
-                            pagination={{
-                              clickable: true,
-                            }}
-                            navigation={true}
-                            modules={[Navigation]}
-                            className="mySwiper"
-                          >
-                            <SwiperSlide  >
-                              <div className="relative">
-                                <img className="cursor-pointer" style={handleHideImg} src={img1} alt="" />
-                                <img className="cursor-pointer" style={handleShowImg} src={img2} alt="" />
-                                <h1 className="absolute z-50 left-3 bottom-4 cursor-pointer text-[10px] bg-[#f4f4f4] text-[#626262] p-1 rounded-sm">new</h1>
-                                <p className="z-50 absolute top-2 right-3 text-3xl"><CiHeart /></p>
-                                <a className={`bg-base-100 cursor-pointer text-[12px] w-[90%] z-50 absolute bottom-4 rounded-sm font-extralight py-3 left-3 ${mouseOver & roted===index ? '' : 'hidden'}`}  >QUICK BUY</a>
-                              </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                              <div className="relative">
-                                <img className="cursor-pointer" style={handleHideImg} src={img4} alt="" />
-                                <img className="cursor-pointer" style={handleShowImg} src={img3} alt="" />
-                                <h1 className="absolute z-50 left-3 bottom-4 cursor-pointer text-[10px] bg-[#f4f4f4] text-[#626262] p-1 rounded-sm">new</h1>
-                                <p className="z-50 absolute top-2 right-3 text-3xl"><CiHeart /></p>
-                                <a className={`bg-base-100 cursor-pointer text-[12px] w-[90%] z-50 absolute bottom-4 rounded-sm font-extralight py-3 left-3 ${mouseOver & roted===index ? '' : 'hidden'}`} >QUICK BUY</a>
-                              </div>
-                            </SwiperSlide>
-                          </Swiper>
-                        </div>
-                        <div className="card-body py-0 pl-0 pr-4">
-                          <p className="text-[10px] py-2">ETHICAL INDIAN ORGANIC COTTON BLEND</p>
-                          <p className="-mt-4 text-[18px]">Oversized Palestine T-Shirt 349 AED</p>
-                          {/* color div */}
-                          <div className="grid grid-cols-5">
-                            <div className="border hover:border-black  w-8 h-8 flex justify-center items-center rounded-full">
-                              <div className="bg-[#ff9393]  w-6 h-6  rounded-full "></div>
-                            </div>
-                            <div className="border hover:border-black  w-8 h-8 flex justify-center items-center rounded-full">
-                              <div className="bg-black  w-6 h-6  rounded-full "></div>
-                            </div>
-                            <div className="border hover:border-black  w-8 h-8 flex justify-center items-center rounded-full">
-                              <div className="bg-[#6fff9c] w-6 h-6  rounded-full "></div>
-                            </div>
-                            <div className="border hover:border-black  w-8 h-8 flex justify-center items-center rounded-full">
-                              <div className="bg-[#ffff5c] w-6 h-6  rounded-full "></div>
-                            </div>
-                            <div className="border hover:border-black  w-8 h-8 flex justify-center items-center rounded-full">
-                              <div className="bg-[#5c8fff] w-6 h-6  rounded-full "></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    </div>
+                    <CardComponent key={index} item={item} setShow={setShow} setNum={setNum}/>
                   ))
                 }
-
                 {
-                  show && index + 1 === num ? <div className="grid col-span-3">
+                  show && Outerindex + 1 === num ? <div className="grid col-span-3">
                     <div className={`px-4 md:px-40 py-12 bg-[#f8f9fa]  `}>
 
                       {/* left part */}
@@ -306,13 +267,7 @@ function Collection() {
               </div>
             ))
           }
-          {/* This Style is for navigate arrow icon show */}
-          <style>{`
-          .swiper-button-prev,
-          .swiper-button-next {
-          visibility: ${mouseOver ? 'visible !important' : 'hidden'};
-          }`
-          }</style>
+          
 
         </div>
       </div>
@@ -325,4 +280,4 @@ function Collection() {
 
 
 
-export default Collection;
+export default Test;

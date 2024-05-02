@@ -5,15 +5,13 @@ import Collections from "../pages/Collection/Collection";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
 import WishList from "../pages/WishList/WishList";
+import Payment from "../pages/PaymentPage/Payment";
+import Faq from "../pages/Faq/Faq";
+import ShippingAndDelivery from "../pages/ShippingAndDelivery/ShippingAndDelivery";
+import ReturnsAndFunds from "../pages/ReturnsAndFunds/ReturnsAndFunds";
 import ResetPassWord from "../pages/ResetPassWord/ResetPassWord";
-import Account from "../pages/Account/Account";
-
-import SingleProduct from "../pages/SingleProduct/SingleProduct";
-import Contact from "../pages/Contact/Contact";
-import Store from "../pages/Store/Store";
-import Privacy from "../pages/Privacy/Privacy";
-import Return from "../pages/Return/Return";
-
+import Test from "../pages/Test/Test";
+import Test2 from "../pages/Test2/Test2";
 
 
 const router = createBrowserRouter([
@@ -46,36 +44,32 @@ const router = createBrowserRouter([
                 element: <WishList></WishList>
             },
             {
-                path: '/account',
-                element: <Account></Account>
+                path:'/faqs',
+                element:<Faq></Faq>
             },
             {
-                path: '/product',
-                element: <SingleProduct></SingleProduct>
+                path:'/shipping',
+                element:<ShippingAndDelivery></ShippingAndDelivery>
+            }
+            ,
+            {
+                path:'/return-refund',
+                element:<ReturnsAndFunds></ReturnsAndFunds>
             },
             {
-                path: '/contact',
-                element: <Contact/>
+                path:'/test',
+                element:<Test/>
             },
             {
-                path: '/store',
-                element: <Store/>
+                path:'/test2',
+                element:<Test2/>
             },
-            {
-                path: '/privacy',
-                element: <Privacy/>
-            },
-            {
-                path: '/privacy',
-                element: <Privacy/>
-            },
-            {
-                path: '/return',
-                element: <Return/>
-            },
-
-
-        ]
-    }
+           ]
+    },
+    {
+        path:"/payment",
+        element:<Payment></Payment>
+    },
+    
 ])
 export default router;

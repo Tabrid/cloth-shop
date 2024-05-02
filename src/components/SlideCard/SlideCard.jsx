@@ -4,6 +4,7 @@ import { HiOutlineMinus } from "react-icons/hi";
 import img1 from "../../assets/images/S106V12PBWM_1.jpg";
 import { IoMdClose } from "react-icons/io";
 import { useAuthContext } from "../../Context/AuthContext";
+import { Link } from "react-router-dom";
 
 const SlideCard = () => {
     const { slideCard, setSlideCard } = useAuthContext();
@@ -102,7 +103,7 @@ const SlideCard = () => {
                     </span>{" "}
                     calculated at checkout.
                 </p>
-                <button className="btn bg-black text-white">CHECK OUT</button>
+                <Link to='/payment'> <button className="btn bg-black text-white">CHECK OUT</button> </Link>
             </div>
         </div>
     );
