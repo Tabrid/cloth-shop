@@ -1,0 +1,62 @@
+[
+    {
+        "title":"hello world",
+        "content": "Hello World! This is a simple example of a JSON object.",
+        "price": "250",
+        "image": [
+            {
+              "name": "black",
+              "hex": "#000000",
+              "images": [
+                {
+                  "id": 1,
+                  "url": "https://i.ibb.co/cgzhsrC/image.png",
+                  "description": "Image 1"
+                },
+                {
+                  "id": 2,
+                  "url": "https://i.ibb.co/7QQhKCk/image.png",
+                  "description": "Image 2"
+                },
+                {
+                  "id": 3,
+                  "url": "https://i.ibb.co/0rST99b/image.png",
+                  "description": "Image 2"
+                }
+              ]
+            },
+            {
+              "name": "Blue",
+              "hex": "#0000FF",
+              "images": [
+                {
+                  "id": 5,
+                  "url": "https://i.ibb.co/h8Wm6VJ/image.png",
+                  "description": "Image 3"
+                },
+                {
+                  "id": 4,
+                  "url": "https://i.ibb.co/h8Wm6VJ/image.png",
+                  "description": "Image 4"
+                }
+              ]
+            },
+            {
+              "name": "khaki",
+              "hex": "##F0E68C",
+              "images": [
+                {
+                  "id": 6,
+                  "url": "https://i.ibb.co/St1STgL/image.png",
+                  "description": "Image 3"
+                },
+                {
+                  "id": 7,
+                  "url": "https://i.ibb.co/mDHtFtP/image.png",
+                  "description": "Image 4"
+                }
+              ]
+            }
+          ]
+    }
+]

@@ -1,0 +1,7 @@
+.vertical-line {
+    grid-column: 1; /* Change the value to position the line differently */
+    border: none;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #ddd;
+  }
